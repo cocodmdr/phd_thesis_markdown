@@ -2,7 +2,7 @@
 
 [![DOI](https://zenodo.org/badge/doi/10.5281/zenodo.58490.svg)](http://dx.doi.org/10.5281/zenodo.58490)
 
-This repository provides a framework for writing a PhD thesis in Markdown. I used the template for my PhD submission to University College London (UCL), but it should be straightforward to adapt suit other universities too.
+This repository provides a framework for writing a PhD thesis in Markdown. I used the template for my PhD submission to Centrale Marseille, but it should be straightforward to adapt suit other universities too.
 
 ## Citing the template
 
@@ -169,7 +169,7 @@ Put simply, `pandoc` uses the latex template provided to create a `.tex` file, t
 ## What else do I need to know?
 
 Some useful points, in a random order:
-- if you only care about generating `theis.pdf` you can always fall back on writing LaTeX within the markdown files (but note that `theis.html` and other outputs will not be able to render this)
+- if you only care about generating `thesis.pdf` you can always fall back on writing LaTeX within the markdown files (but note that `thesis.html` and other outputs will not be able to render this)
 - the markdown files you write (i.e. your chapters) will be compiled in alphabetical order, so keep the filenames sorted in the order you want them to appear e.g. `01_chapter_1.md`, `02_chapter_2.md`, etc. This is required because of the way we have written `make pdf`. You can change this behaviour by writing a custom `pandoc` command instead of using `make pdf`.
 - each chapter must finish with at least one blank line, otherwise the header of the following chapter may not be picked up.
 - add two spaces at the end of a line to force a line break.
