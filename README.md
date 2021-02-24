@@ -75,8 +75,8 @@ sudo dpkg -i $DEB
 # where $DEB is the path to the downloaded deb. This will install the pandoc executable and man page.
 
 # Install this repo and go to the phd folder
-git clone ...
-cd ...
+git clone https://github.com/cocodmdr/phd_thesis_markdown.git
+cd phd_thesis_markdown
 
 # Install required python and texlive packages
 make install
