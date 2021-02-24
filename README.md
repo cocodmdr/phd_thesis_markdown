@@ -27,6 +27,67 @@ conda activate phd
 make install
 ```
 
+For linux use this quickstart:
+```bash
+# Get texlive :
+# Firstly, you should uninstall all existing TexLive installations:
+
+sudo apt-get remove texlive*
+rm -rf /usr/local/texlive/2020
+rm -rf ~/.texlive2020
+rm -rf /usr/local/texlive/2019
+rm -rf ~/.texlive2019
+
+# Next, you must create a place for your new TexLive distribution to live, and give your user ownership of this directory
+
+sudo mkdir -p /usr/local/texlive/2020
+sudo chown "$USER" /usr/local/texlive
+
+# Download and manually install TexLive
+
+mkdir /tmp/texlive
+cd /tmp/texlive
+wget http://mirror.ctan.org/systems/texlive/tlnet/install-tl.zip
+unzip ./install-tl.zip -d install-tl
+cd install-tl/install-tl-$(date +%Y%m%d)
+perl ./install-tl
+
+# When you are in perl console then press "i" to install
+# Enter command: i
+
+# Post-Installation: you need to add to the path environment
+export MANPATH="$MANPATH:/usr/local/texlive/2020/texmf-dist/doc/man"
+export INFOPATH="$INFOPATH:/usr/local/texlive/2020/texmf-dist/doc/info"
+export PATH=/usr/local/texlive/2020/bin/x86_64-linux:$PATH
+
+# Test your installation
+latex small2e
+
+# update tlmgr and packages
+sudo tlmgr init-usertree
+sudo tlmgr update --self
+sudo tlmgr update --all
+
+# install pandoc
+# Download pandoc here : https://github.com/jgm/pandoc/releases/tag/2.11.4
+
+sudo dpkg -i $DEB
+# where $DEB is the path to the downloaded deb. This will install the pandoc executable and man page.
+
+# Install this repo and go to the phd folder
+git clone ...
+cd ...
+
+# Install required python and texlive packages
+make install
+
+# if you can run "tlmgr" but not "sudo tlmgr" then change the install script to point to the good address of tlmgr:
+which tlmgr
+-> /usr/local/texlive/2020/bin/x86_64-linux/tlmgr
+
+# then replace tlmgr by is full path in install script
+```
+
 ## Why write my thesis in Markdown?
 
 Markdown is a super-friendly plain text format that can be easily converted to a bunch of other formats like PDF, Word and LaTeX. You'll enjoy working in Markdown because:
